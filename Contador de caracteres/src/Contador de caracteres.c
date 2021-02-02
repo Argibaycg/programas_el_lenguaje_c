@@ -1,17 +1,15 @@
 /*
-Cuenta los carcteres de la entrada
+ Cuenta los caracteres de la entrada
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
+int main(void) {
 
 	long nc = 0;
 
-	while(getchar()!= EOF)
-	{
+	while (getchar() != EOF) {
 		++nc;
 
 		printf("%ld\n", nc);

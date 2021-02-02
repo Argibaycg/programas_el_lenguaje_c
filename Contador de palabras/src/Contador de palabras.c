@@ -1,5 +1,5 @@
 /*
-Cuenta lineas palabras y caracteres de la entrada
+ Cuenta lineas palabras y caracteres de la entrada
  */
 
 #include <stdio.h>
@@ -13,15 +13,13 @@ int main(void) {
 
 	state = OUT;
 	nl = nw = nc = 0;
-	while((c = getchar()) != EOF)
-	{
+	while ((c = getchar()) != EOF) {
 		++nc;
-		if(c =='\n')
-			 ++nl;
-		if(c == ' ' || c == '\n' || c == '\t')
+		if (c == '\n')
+			++nl;
+		if (c == ' ' || c == '\n' || c == '\t')
 			state = OUT;
-		else if(state == OUT)
-		{
+		else if (state == OUT) {
 			state = IN;
 			++nw;
 		}

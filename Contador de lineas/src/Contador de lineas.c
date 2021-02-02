@@ -1,33 +1,39 @@
 /*
-Cuenta la canitdad de lineas tabulacion y espacios de la entrada
+Cuenta digitos, espacion en blanco y otros
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
+#define IN 1
+#define OUT 0
+
 int main(void)
 {
+	int c, i, nwhite, nother;
+	int ndigit[10];
 
-	int c ,nl, ne, nt;
-
-	nl = 0;
-	ne = 0;
-	nt = 0;
+	nwhite = nother = 0;
+	for(i = 0; i < 10; ++i)
+	{
+		ndigit[i] = 0;
+	}
 	while((c = getchar()) != EOF)
 	{
-		if(c == '\n')
-		++nl;
+		if(c >= '0' && c <= '9')
+			++ndigit[c-'0'];
+		else if(c == ' ' || c == '\n' || c == '\t')
+			++nwhite;
+		else
+			++nother;
 
-		if(c == ' ')
-		++ne;
+		printf("Digitos: ");
+		for(i = 0; i < 10; ++i)
+			printf("%d", ndigit[i]);
 
-		if(c == '\t')
-		{
-		++nt;
-		}
-
+		printf(", espacion en blanco: %d, otros = %d\n",
+				nwhite,
+				nother);
 	}
-		printf("La cantidad de lineas fue: %d\n", nl);
-		printf("La cantidad de espacios fue: %d\n", ne);
-		printf("La cantidad de tabulaciones fue: %d\n", nt);
+
 }
